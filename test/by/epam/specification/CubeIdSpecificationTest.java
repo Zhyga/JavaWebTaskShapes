@@ -1,14 +1,16 @@
-package by.epam.specification.impl;
+package by.epam.specification;
 
 import by.epam.entity.Cube;
 import by.epam.entity.Point;
 import by.epam.specification.Specification;
+import by.epam.specification.impl.CubeIdSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CubeVolumeSpecificationTest {
+public class CubeIdSpecificationTest {
+
     @Test
-    public void cubeVolumeSpecificationTest(){
+    public void cubeIdSpecificationTest(){
         Point point1 = new Point(-1,1,1);
         Point point2 = new Point(-1,1,-1);
         Point point3 = new Point(1,1,-1);
@@ -18,8 +20,8 @@ public class CubeVolumeSpecificationTest {
         Point point7 = new Point(1,-1,-1);
         Point point8 = new Point(1,-1,1);
         Cube cube = new Cube(point1,point2,point3,point4,point5,point6,point7,point8);
-        Specification<Cube> cubeVolumeSpecification = new CubeVolumeSpecification(7,40);
-        boolean actual = cubeVolumeSpecification.specify(cube);
+        Specification<Cube> cubeIdSpecification = new CubeIdSpecification(cube.getShapeId());
+        boolean actual = cubeIdSpecification.specify(cube);
         Assert.assertTrue(actual);
     }
 }
