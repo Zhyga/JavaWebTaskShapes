@@ -1,8 +1,5 @@
 package by.epam.entity;
 
-import java.util.UUID;
-
-
 /*
 *   Point1       Point2
 *
@@ -11,8 +8,9 @@ import java.util.UUID;
 *   Point3       Point4
 * */
 
-public class Cube {
-    private final String cubeId;
+import java.util.List;
+
+public class Cube extends Shape{
     private Point point1;
     private Point point2;
     private Point point3;
@@ -22,7 +20,6 @@ public class Cube {
     private Point point7;
     private Point point8;
     public Cube(Point point1,Point point2,Point point3,Point point4,Point point5,Point point6,Point point7,Point point8){
-        cubeId = UUID.randomUUID().toString();
         this.point1 = point1;
         this.point2 = point2;
         this.point3 = point3;
@@ -33,8 +30,15 @@ public class Cube {
         this.point8 = point8;
     }
 
-    public String getCubeId() {
-        return cubeId;
+    public Cube(List<Point> pointList){
+        this.point1 = pointList.get(0);
+        this.point2 = pointList.get(1);
+        this.point3 = pointList.get(2);
+        this.point4 = pointList.get(3);
+        this.point5 = pointList.get(4);
+        this.point6 = pointList.get(5);
+        this.point7 = pointList.get(6);
+        this.point8 = pointList.get(7);
     }
 
     public Point getPoint1() {
@@ -110,9 +114,6 @@ public class Cube {
             return false;
         }
         Cube cube = (Cube) o;
-        if (cubeId != cube.cubeId) {
-            return false;
-        }
         if(point1 == null || cube.point1 == null || !cube.point1.equals(point1)){
             return false;
         }
@@ -142,7 +143,7 @@ public class Cube {
 
     @Override
     public int hashCode() {
-        int result = 31 * 107 + (cubeId != null ? cubeId.hashCode() : 0);
+        int result = 31;
         result = result * 107 + (point1 != null ? point1.hashCode() : 0);
         result = result * 107 + (point2 != null ? point2.hashCode() : 0);
         result = result * 107 + (point3 != null ? point3.hashCode() : 0);
@@ -157,7 +158,7 @@ public class Cube {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Cube{");
-        sb.append("\nCube=").append(cubeId);
+        sb.append("\nCube=").append(getShapeId());
         sb.append(",\n point1=").append(point1);
         sb.append(",\n point2=").append(point2);
         sb.append(",\n point3=").append(point3);
