@@ -2,11 +2,11 @@ package by.epam.entity;
 
 import java.util.UUID;
 
-public class Shape {
+public abstract class AbstractShape {
     private final String shapeId;
 
 
-    public Shape() {
+    public AbstractShape() {
         this.shapeId = UUID.randomUUID().toString();
     }
 

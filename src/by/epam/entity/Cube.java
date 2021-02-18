@@ -8,9 +8,14 @@ package by.epam.entity;
 *   Point3       Point4
 * */
 
+import by.epam.observer.Observed;
+import by.epam.observer.Observer;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Cube extends Shape{
+public class Cube extends AbstractShape implements Observed{
+    List<Observer> observers = new ArrayList<>();
     private Point point1;
     private Point point2;
     private Point point3;
@@ -47,6 +52,7 @@ public class Cube extends Shape{
 
     public void setPoint1(Point point1) {
         this.point1 = point1;
+        notifyObservers();
     }
 
     public Point getPoint2() {
@@ -55,6 +61,7 @@ public class Cube extends Shape{
 
     public void setPoint2(Point point2) {
         this.point2 = point2;
+        notifyObservers();
     }
 
     public Point getPoint3() {
@@ -63,6 +70,7 @@ public class Cube extends Shape{
 
     public void setPoint3(Point point3) {
         this.point3 = point3;
+        notifyObservers();
     }
 
     public Point getPoint4() {
@@ -71,6 +79,7 @@ public class Cube extends Shape{
 
     public void setPoint4(Point point4) {
         this.point4 = point4;
+        notifyObservers();
     }
 
     public Point getPoint5() {
@@ -87,6 +96,7 @@ public class Cube extends Shape{
 
     public void setPoint6(Point point6) {
         this.point6 = point6;
+        notifyObservers();
     }
 
     public Point getPoint7() {
@@ -95,6 +105,7 @@ public class Cube extends Shape{
 
     public void setPoint7(Point point7) {
         this.point7 = point7;
+        notifyObservers();
     }
 
     public Point getPoint8() {
@@ -103,6 +114,7 @@ public class Cube extends Shape{
 
     public void setPoint8(Point point8) {
         this.point8 = point8;
+        notifyObservers();
     }
 
     @Override
@@ -169,5 +181,22 @@ public class Cube extends Shape{
         sb.append(",\n point8=").append(point8);
         sb.append("\n}");
         return sb.toString();
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(Observer observer : observers){
+            observer.handleEvent(this);
+        }
     }
 }
