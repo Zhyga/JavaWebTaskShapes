@@ -3,6 +3,7 @@ package by.epam.observer.impl;
 import by.epam.entity.Cube;
 import by.epam.entity.CubeDataHandler;
 import by.epam.exception.CustomException;
+import by.epam.observer.CubeEvent;
 import by.epam.observer.Observer;
 import by.epam.service.CubeMathService;
 import by.epam.warehouse.CubeWarehouse;
@@ -13,9 +14,9 @@ public class CubeDataObserver implements Observer{
     private static Logger logger = LogManager.getLogger();
 
     @Override
-    public void handleEvent(Cube cube) {
+    public void handleEvent(CubeEvent cubeEvent) {
+        Cube cube = cubeEvent.getSource();
         try {
-            System.out.println("Done");
             CubeMathService cubeMathService =
                     new CubeMathService();
             double cubeSurfaceArea =

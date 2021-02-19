@@ -4,9 +4,10 @@ public class CubeDataHandler {
     private double surfaceArea;
     private double volume;
 
-    public CubeDataHandler(){}
+    public CubeDataHandler() {
+    }
 
-    public CubeDataHandler(double surfaceArea, double volume){
+    public CubeDataHandler(double surfaceArea, double volume) {
         this.surfaceArea = surfaceArea;
         this.volume = volume;
     }

@@ -1,11 +1,11 @@
 package by.epam.entity;
 
-public class Point {
+public class CustomPoint {
     private double x;
     private double y;
     private double z;
 
-    public Point(double x, double y,double z){
+    public CustomPoint(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -39,7 +39,7 @@ public class Point {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Point point = (Point) o;
+        CustomPoint point = (CustomPoint) o;
         if (Double.compare(x, point.x) != 0) {
             return false;
         }
@@ -56,7 +56,7 @@ public class Point {
     public int hashCode() {
         int result = 31;
         result = result * 11 + Double.valueOf(x).hashCode();
-        result = result * 11+ Double.valueOf(y).hashCode();
+        result = result * 11 + Double.valueOf(y).hashCode();
         result = result * 11 + Double.valueOf(z).hashCode();
         return result;
     }

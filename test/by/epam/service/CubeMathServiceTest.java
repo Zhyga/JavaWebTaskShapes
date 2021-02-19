@@ -1,7 +1,7 @@
 package by.epam.service;
 
 import by.epam.entity.Cube;
-import by.epam.entity.Point;
+import by.epam.entity.CustomPoint;
 import by.epam.exception.CustomException;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -23,7 +23,7 @@ public class CubeMathServiceTest {
     }
 
     @Test(dataProvider = "calculateVolumeData")
-    public void calculateVolumeTeas(Cube cube,double expected){
+    public void calculateVolumeTest(Cube cube,double expected){
         double actual = 0;
         try {
             actual = cubeMathService.calculateVolume(cube);
@@ -57,14 +57,14 @@ public class CubeMathServiceTest {
 
     @DataProvider(name= "calculateVolumeData")
     public Object[][] createCalculateVolumeData(){
-        Point point1 = new Point(-1,1,1);
-        Point point2 = new Point(-1,1,-1);
-        Point point3 = new Point(1,1,-1);
-        Point point4 = new Point(1,1,1);
-        Point point5 = new Point(-1,-1,1);
-        Point point6 = new Point(-1,-1,-1);
-        Point point7 = new Point(1,-1,-1);
-        Point point8 = new Point(1,-1,1);
+        CustomPoint point1 = new CustomPoint(-1,1,1);
+        CustomPoint point2 = new CustomPoint(-1,1,-1);
+        CustomPoint point3 = new CustomPoint(1,1,-1);
+        CustomPoint point4 = new CustomPoint(1,1,1);
+        CustomPoint point5 = new CustomPoint(-1,-1,1);
+        CustomPoint point6 = new CustomPoint(-1,-1,-1);
+        CustomPoint point7 = new CustomPoint(1,-1,-1);
+        CustomPoint point8 = new CustomPoint(1,-1,1);
         Cube cube = new Cube(point1,point2,point3,point4,point5,point6,point7,point8);
         return new Object[][]{
             {cube,8.0}
@@ -73,14 +73,14 @@ public class CubeMathServiceTest {
 
     @DataProvider(name= "calculateSurfaceAreaData")
     public Object[][] createCalculateSurfaceArea(){
-        Point point1 = new Point(-1,1,1);
-        Point point2 = new Point(-1,1,-1);
-        Point point3 = new Point(1,1,-1);
-        Point point4 = new Point(1,1,1);
-        Point point5 = new Point(-1,-1,1);
-        Point point6 = new Point(-1,-1,-1);
-        Point point7 = new Point(1,-1,-1);
-        Point point8 = new Point(1,-1,1);
+        CustomPoint point1 = new CustomPoint(-1,1,1);
+        CustomPoint point2 = new CustomPoint(-1,1,-1);
+        CustomPoint point3 = new CustomPoint(1,1,-1);
+        CustomPoint point4 = new CustomPoint(1,1,1);
+        CustomPoint point5 = new CustomPoint(-1,-1,1);
+        CustomPoint point6 = new CustomPoint(-1,-1,-1);
+        CustomPoint point7 = new CustomPoint(1,-1,-1);
+        CustomPoint point8 = new CustomPoint(1,-1,1);
         Cube cube = new Cube(point1,point2,point3,point4,point5,point6,point7,point8);
         Cube cube1 = null;
         return new Object[][]{
@@ -91,23 +91,23 @@ public class CubeMathServiceTest {
 
     @DataProvider(name= "isOnCoordinateAxisData")
     public Object[][] createIsOnCoordinateAxis(){
-        Point point1 = new Point(-1,0,1);
-        Point point2 = new Point(-1,1,-1);
-        Point point3 = new Point(1,1,-1);
-        Point point4 = new Point(1,1,1);
-        Point point5 = new Point(-1,-1,1);
-        Point point6 = new Point(-1,-1,-1);
-        Point point7 = new Point(1,-1,-1);
-        Point point8 = new Point(1,-1,1);
+        CustomPoint point1 = new CustomPoint(-1,0,1);
+        CustomPoint point2 = new CustomPoint(-1,1,-1);
+        CustomPoint point3 = new CustomPoint(1,1,-1);
+        CustomPoint point4 = new CustomPoint(1,1,1);
+        CustomPoint point5 = new CustomPoint(-1,-1,1);
+        CustomPoint point6 = new CustomPoint(-1,-1,-1);
+        CustomPoint point7 = new CustomPoint(1,-1,-1);
+        CustomPoint point8 = new CustomPoint(1,-1,1);
         Cube cube = new Cube(point1,point2,point3,point4,point5,point6,point7,point8);
-        Point point11 = new Point(-1311,131,155);
-        Point point12 = new Point(-6,1,21);
-        Point point13 = new Point(1,1,-1);
-        Point point14 = new Point(1,1,1);
-        Point point15 = new Point(-1,-1,1);
-        Point point16 = new Point(11,-13,1);
-        Point point17 = new Point(761,-1,1);
-        Point point18 = new Point(1,1,1);
+        CustomPoint point11 = new CustomPoint(-1311,131,155);
+        CustomPoint point12 = new CustomPoint(-6,1,21);
+        CustomPoint point13 = new CustomPoint(1,1,-1);
+        CustomPoint point14 = new CustomPoint(1,1,1);
+        CustomPoint point15 = new CustomPoint(-1,-1,1);
+        CustomPoint point16 = new CustomPoint(11,-13,1);
+        CustomPoint point17 = new CustomPoint(761,-1,1);
+        CustomPoint point18 = new CustomPoint(1,1,1);
         Cube cube2 = new Cube(point11,point12,point13,point14,point15,point16,point17,point18);
         return new Object[][]{
                 {cube, true},

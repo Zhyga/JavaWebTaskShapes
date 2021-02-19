@@ -1,8 +1,7 @@
 package by.epam.service;
 
 import by.epam.entity.Cube;
-import by.epam.entity.Point;
-import by.epam.reader.CustomFIleReader;
+import by.epam.entity.CustomPoint;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -15,7 +14,6 @@ public class CubeVerificationServiceTest {
     @BeforeClass
     public void setUp() {
         cubeVerificationService = new CubeVerificationService();
-
     }
 
     @AfterClass
@@ -37,23 +35,23 @@ public class CubeVerificationServiceTest {
 
     @DataProvider(name="isCubeData")
     public Object[][] createIsCubeData(){
-        Point point1 = new Point(-1,1,1);
-        Point point2 = new Point(-1,1,-1);
-        Point point3 = new Point(1,1,-1);
-        Point point4 = new Point(1,1,1);
-        Point point5 = new Point(-1,-1,1);
-        Point point6 = new Point(-1,-1,-1);
-        Point point7 = new Point(1,-1,-1);
-        Point point8 = new Point(1,-1,1);
+        CustomPoint point1 = new CustomPoint(-1,1,1);
+        CustomPoint point2 = new CustomPoint(-1,1,-1);
+        CustomPoint point3 = new CustomPoint(1,1,-1);
+        CustomPoint point4 = new CustomPoint(1,1,1);
+        CustomPoint point5 = new CustomPoint(-1,-1,1);
+        CustomPoint point6 = new CustomPoint(-1,-1,-1);
+        CustomPoint point7 = new CustomPoint(1,-1,-1);
+        CustomPoint point8 = new CustomPoint(1,-1,1);
         Cube cube = new Cube(point1,point2,point3,point4,point5,point6,point7,point8);
-        Point point11 = new Point(1,1,1);
-        Point point12 = new Point(65,21,-31);
-        Point point13 = new Point(32,1,-56);
-        Point point14 = new Point(132,1,1);
-        Point point15 = new Point(-154,91,56);
-        Point point16 = new Point(12,28,-34);
-        Point point17 = new Point(35,76,-12);
-        Point point18 = new Point(90,-1,10);
+        CustomPoint point11 = new CustomPoint(1,1,1);
+        CustomPoint point12 = new CustomPoint(65,21,-31);
+        CustomPoint point13 = new CustomPoint(32,1,-56);
+        CustomPoint point14 = new CustomPoint(132,1,1);
+        CustomPoint point15 = new CustomPoint(-154,91,56);
+        CustomPoint point16 = new CustomPoint(12,28,-34);
+        CustomPoint point17 = new CustomPoint(35,76,-12);
+        CustomPoint point18 = new CustomPoint(90,-1,10);
         Cube cube2 = new Cube(point11,point12,point13,point14,point15,point16,point17,point18);
         return new Object[][]{
                 {cube},

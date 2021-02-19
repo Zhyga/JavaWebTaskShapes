@@ -1,10 +1,10 @@
 package by.epam.service;
 
-import by.epam.entity.Point;
+import by.epam.entity.CustomPoint;
 
 public abstract class CubeService {
     public double calculateDistanceBetweenPoints(
-            Point firstPoint, Point secondPoint) {
+            CustomPoint firstPoint, CustomPoint secondPoint) {
         double distanceX = firstPoint.getX() - secondPoint.getX();
         double distanceY = firstPoint.getY() - secondPoint.getY();
         double distanceZ = firstPoint.getZ() - secondPoint.getZ();
@@ -12,7 +12,7 @@ public abstract class CubeService {
         return distanceBetweenPoints;
     }
 
-    public double calculateDiagonalViaSide(Point firstPoint, Point secondPoint) {
+    public double calculateDiagonalViaSide(CustomPoint firstPoint, CustomPoint secondPoint) {
         double diagonal = calculateDistanceBetweenPoints(firstPoint, secondPoint) * Math.sqrt(2);
         return diagonal;
     }

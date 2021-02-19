@@ -1,41 +1,34 @@
 package by.epam.entity;
 
-/*
-*   Point1       Point2
-*
-*         Square
-*
-*   Point3       Point4
-* */
-
+import by.epam.observer.CubeEvent;
 import by.epam.observer.Observed;
 import by.epam.observer.Observer;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cube extends AbstractShape implements Observed{
+public class Cube extends AbstractShape implements Observed {
     List<Observer> observers = new ArrayList<>();
-    private Point point1;
-    private Point point2;
-    private Point point3;
-    private Point point4;
-    private Point point5;
-    private Point point6;
-    private Point point7;
-    private Point point8;
-    public Cube(Point point1,Point point2,Point point3,Point point4,Point point5,Point point6,Point point7,Point point8){
-        this.point1 = point1;
-        this.point2 = point2;
-        this.point3 = point3;
-        this.point4 = point4;
-        this.point5 = point5;
-        this.point6 = point6;
-        this.point7 = point7;
-        this.point8 = point8;
+    private CustomPoint point1;
+    private CustomPoint point2;
+    private CustomPoint point3;
+    private CustomPoint point4;
+    private CustomPoint point5;
+    private CustomPoint point6;
+    private CustomPoint point7;
+    private CustomPoint point8;
+
+    public Cube(CustomPoint... args) {
+        this.point1 = args[0];
+        this.point2 = args[1];
+        this.point3 = args[2];
+        this.point4 = args[3];
+        this.point5 = args[4];
+        this.point6 = args[5];
+        this.point7 = args[6];
+        this.point8 = args[7];
     }
 
-    public Cube(List<Point> pointList){
+    public Cube(List<CustomPoint> pointList) {
         this.point1 = pointList.get(0);
         this.point2 = pointList.get(1);
         this.point3 = pointList.get(2);
@@ -46,73 +39,73 @@ public class Cube extends AbstractShape implements Observed{
         this.point8 = pointList.get(7);
     }
 
-    public Point getPoint1() {
+    public CustomPoint getPoint1() {
         return point1;
     }
 
-    public void setPoint1(Point point1) {
+    public void setPoint1(CustomPoint point1) {
         this.point1 = point1;
         notifyObservers();
     }
 
-    public Point getPoint2() {
+    public CustomPoint getPoint2() {
         return point2;
     }
 
-    public void setPoint2(Point point2) {
+    public void setPoint2(CustomPoint point2) {
         this.point2 = point2;
         notifyObservers();
     }
 
-    public Point getPoint3() {
+    public CustomPoint getPoint3() {
         return point3;
     }
 
-    public void setPoint3(Point point3) {
+    public void setPoint3(CustomPoint point3) {
         this.point3 = point3;
         notifyObservers();
     }
 
-    public Point getPoint4() {
+    public CustomPoint getPoint4() {
         return point4;
     }
 
-    public void setPoint4(Point point4) {
+    public void setPoint4(CustomPoint point4) {
         this.point4 = point4;
         notifyObservers();
     }
 
-    public Point getPoint5() {
+    public CustomPoint getPoint5() {
         return point5;
     }
 
-    public void setPoint5(Point point5) {
+    public void setPoint5(CustomPoint point5) {
         this.point5 = point5;
     }
 
-    public Point getPoint6() {
+    public CustomPoint getPoint6() {
         return point6;
     }
 
-    public void setPoint6(Point point6) {
+    public void setPoint6(CustomPoint point6) {
         this.point6 = point6;
         notifyObservers();
     }
 
-    public Point getPoint7() {
+    public CustomPoint getPoint7() {
         return point7;
     }
 
-    public void setPoint7(Point point7) {
+    public void setPoint7(CustomPoint point7) {
         this.point7 = point7;
         notifyObservers();
     }
 
-    public Point getPoint8() {
+    public CustomPoint getPoint8() {
         return point8;
     }
 
-    public void setPoint8(Point point8) {
+    public void setPoint8(CustomPoint point8) {
         this.point8 = point8;
         notifyObservers();
     }
@@ -126,28 +119,28 @@ public class Cube extends AbstractShape implements Observed{
             return false;
         }
         Cube cube = (Cube) o;
-        if(point1 == null || cube.point1 == null || !cube.point1.equals(point1)){
+        if (point1 == null || cube.point1 == null || !cube.point1.equals(point1)) {
             return false;
         }
-        if(point2 == null || cube.point2 == null || !cube.point2.equals(point2)){
+        if (point2 == null || cube.point2 == null || !cube.point2.equals(point2)) {
             return false;
         }
-        if(point3 == null || cube.point3 == null || !cube.point3.equals(point3)){
+        if (point3 == null || cube.point3 == null || !cube.point3.equals(point3)) {
             return false;
         }
-        if(point4 == null || cube.point4 == null || !cube.point4.equals(point4)){
+        if (point4 == null || cube.point4 == null || !cube.point4.equals(point4)) {
             return false;
         }
-        if(point5 == null || cube.point5 == null || !cube.point5.equals(point5)){
+        if (point5 == null || cube.point5 == null || !cube.point5.equals(point5)) {
             return false;
         }
-        if(point6 == null || cube.point6 == null || !cube.point6.equals(point6)){
+        if (point6 == null || cube.point6 == null || !cube.point6.equals(point6)) {
             return false;
         }
-        if(point7 == null || cube.point7 == null || !cube.point7.equals(point7)){
+        if (point7 == null || cube.point7 == null || !cube.point7.equals(point7)) {
             return false;
         }
-        if(point8 == null || cube.point8 == null || !cube.point8.equals(point8)){
+        if (point8 == null || cube.point8 == null || !cube.point8.equals(point8)) {
             return false;
         }
         return true;
@@ -195,8 +188,8 @@ public class Cube extends AbstractShape implements Observed{
 
     @Override
     public void notifyObservers() {
-        for(Observer observer : observers){
-            observer.handleEvent(this);
+        for (Observer observer : observers) {
+            observer.handleEvent(new CubeEvent(this));
         }
     }
 }

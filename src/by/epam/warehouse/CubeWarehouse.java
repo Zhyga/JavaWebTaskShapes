@@ -29,7 +29,7 @@ public class CubeWarehouse {
         return cubeData.remove(key);
     }
 
-    public static Map<String, CubeDataHandler> getCubeData() {
+    public Map<String, CubeDataHandler> getCubeData() {
         return Collections.unmodifiableMap(cubeData);
     }
 }

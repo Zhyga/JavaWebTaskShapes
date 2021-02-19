@@ -15,7 +15,7 @@ public abstract class AbstractShape {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getName());
         sb.append(" [shapeId=");

@@ -2,7 +2,6 @@ package by.epam.repository;
 
 import by.epam.entity.Cube;
 import by.epam.specification.Specification;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
@@ -26,6 +25,10 @@ public class CubeRepository {
     public List<Cube> query(Specification<Cube> specification) {
         return cubes.stream().filter(c -> specification.specify(c))
                 .collect(Collectors.toList());
+    }
+
+    public Cube get(int index){
+        return cubes.get(index);
     }
 
     public List<Cube> sort(Comparator<Cube> comparator) {

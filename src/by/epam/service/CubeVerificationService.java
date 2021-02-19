@@ -1,7 +1,7 @@
 package by.epam.service;
 
 import by.epam.entity.Cube;
-import by.epam.entity.Point;
+import by.epam.entity.CustomPoint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.List;
 public class CubeVerificationService extends CubeService {
     private final int sidesAtPoint = 3;
 
-    public boolean isCubeByPoints(Cube cube) {//need to refactor
-        Point point1 = cube.getPoint1();
-        Point point2 = cube.getPoint2();
-        Point point3 = cube.getPoint3();
-        Point point4 = cube.getPoint4();
-        Point point5 = cube.getPoint5();
-        Point point6 = cube.getPoint6();
-        Point point7 = cube.getPoint7();
-        Point point8 = cube.getPoint8();
+    public boolean isCubeByPoints(Cube cube) {
+        CustomPoint point1 = cube.getPoint1();
+        CustomPoint point2 = cube.getPoint2();
+        CustomPoint point3 = cube.getPoint3();
+        CustomPoint point4 = cube.getPoint4();
+        CustomPoint point5 = cube.getPoint5();
+        CustomPoint point6 = cube.getPoint6();
+        CustomPoint point7 = cube.getPoint7();
+        CustomPoint point8 = cube.getPoint8();
         List<Double> edges1 = new ArrayList<>();
         List<Double> edges2 = new ArrayList<>();
         List<Double> edges3 = new ArrayList<>();
@@ -134,7 +134,7 @@ public class CubeVerificationService extends CubeService {
         return result;
     }
 
-    private boolean isPointsInLine(Point point1, Point point2, Point point3) {
+    private boolean isPointsInLine(CustomPoint point1, CustomPoint point2, CustomPoint point3) {
         boolean sideXY = (point3.getX() - point1.getX()) / (point2.getX() - point1.getX())
                 == (point3.getY() - point1.getY()) / (point2.getY() - point1.getY());
         boolean sizeYZ = (point3.getY() - point1.getY()) / (point2.getY() - point1.getY())
@@ -145,7 +145,7 @@ public class CubeVerificationService extends CubeService {
         return true;
     }
 
-    private boolean isSquare(Point point1, Point point2, Point point3, Point point4) {
+    private boolean isSquare(CustomPoint point1, CustomPoint point2, CustomPoint point3, CustomPoint point4) {
         if (isPointsInLine(point1, point2, point3) &&
                 isPointsInLine(point1, point2, point4)) {
             return false;

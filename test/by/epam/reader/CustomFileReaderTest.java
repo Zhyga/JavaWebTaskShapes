@@ -6,7 +6,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -42,9 +41,12 @@ public class CustomFileReaderTest {
         expected.add("1.0 2.0 3.0 4.0 5.0 6.1 7.2 8.3 9.4 10.1 1.1 2.3 4.5 6.7 3.4 5.7 8.1 9.1 10.1 1.1 2.3 4.5 6.7 3.4");
         expected.add("-1.0 1.0 1.0 -1.0 1.0 -1.0 1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0");
         List<String> expected2 = new ArrayList<>();
-        expected2.add("-1.0 1.0 1.0 -1.0 1.0 -1.0 1.0 1.g0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0");
-        expected2.add("1.0 2.0 3.0 4.0 5.0 6.1 7.2 8.3 9g.4 10.1 1.1 2.3 4.5 6.7 3.4 5.7 8.1 9.1 10.1 1.1 2.3 4.5 6.7 3.4");
         expected2.add("-1.0 1.0 1.0 -1.0 1.0 -1.0 1.0 1.0 -1.0 1.0 1.0 1.0 -1.0 -1.0 1.0 -1.0 -1.0 -1.0 1.0 -1.0 -1.0 1.0 -1.0 1.0");
+        expected2.add("1.0 2.0 3.0 4.0 5.0 6.1 7.2 8.3 9.4 10.1 1.1 2.3 4.5 6.7 3.4 5.7 8.1 9.1 10.1 1.1 2.3 4.5 6.7 3.4");
+        expected2.add("hjk 5 34 9535 j3kl  47234 jkk g ghdkg5 4/");
+        expected2.add("");
+        expected2.add("))0-_ ______ 431  ) ggdfjkgdg");
+        expected2.add("2.0 8.0 2.0 -2.0 8.0 8.0 8.0 -8.0 2.0");
         return new Object[][]{
                 {"data/data.txt", expected},
                 {"data/data.txt", expected2},
